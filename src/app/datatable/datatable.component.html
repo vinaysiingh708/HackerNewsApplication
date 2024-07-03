@@ -1,0 +1,35 @@
+<!-- data-table.component.html -->
+
+<mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Filter">
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+    <mat-table [dataSource]="dataSource" matSort>
+  
+      <!-- Title Column -->
+      <ng-container matColumnDef="Title">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Title </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
+       
+      </ng-container>
+  
+      <!-- Link Column -->
+      <ng-container matColumnDef="Url">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Link </mat-header-cell>
+        <mat-cell *matCellDef="let element"> 
+            <a [href]="element.url" target="_blank">{{element.url}}</a>
+        </mat-cell>
+        
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+  
+  
+  
