@@ -12,7 +12,7 @@ export interface NewsStory {
   providedIn: 'root'
 })
 export class HackerNewsService {
-  private baseUrl = 'http://localhost:5018/api/hackernews'; // Update with your API base URL
+  public baseUrl = 'http://localhost:5018/api/hackernews'; // Update with your API base URL
 
   constructor(private http: HttpClient) { }
 
